@@ -7,7 +7,6 @@ const api = axios.create({
   timeout: 10000,
 });
 
-// Interceptor to attach JWT token to every outgoing HTTP request
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('scamgraph_token');
@@ -35,7 +34,6 @@ export const getMe = async () => {
   return response.data;
 };
 
-// CTI / CSI Scam Graph Endpoints
 export const checkHealth = async () => {
   const response = await api.get('/health');
   return response.data;
